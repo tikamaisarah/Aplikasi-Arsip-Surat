@@ -178,6 +178,32 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
+                    <div class="card">
+                    <div class="card-body">
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input type="name" class="form-control" id="nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="email_from">Email</label>
+                                <input type="email" class="form-control" id="email_from">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <textarea class="form-control" id="subject" rows="1"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">File</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-append">
+                                      <button type="button" class="btn btn-info btn-flat">Download</button>
+                                    </span>
+                                  </div>
+                            </div>
+
+                </div>
+                    </div>
                     <!-- Small boxes (Stat box) -->
 
                     <!-- Main row -->
