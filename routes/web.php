@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/surat_masuk', [App\Http\Controllers\SuratMasuk::class, 'index'])->name('surat_masuk');
+Route::get('/surat_keluar', [App\Http\Controllers\SuratKeluar::class, 'index'])->name('surat_keluar');
+Route::get('/pegawai', [App\Http\Controllers\Pegawai::class, 'index'])->name('pegawai');
+Route::get('/kategori', [App\Http\Controllers\Kategori::class, 'index'])->name('kategori');
+Route::get('/laporan', [App\Http\Controllers\Laporan::class, 'index'])->name('laporan');
