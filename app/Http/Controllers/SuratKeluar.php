@@ -24,6 +24,7 @@ class SuratKeluar extends Controller
     public function create()
     {
         //
+        return view('pages.suratkeluar.create');
     }
 
     /**
