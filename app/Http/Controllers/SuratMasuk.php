@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Surat;
 
 class SuratMasuk extends Controller
 {
@@ -13,7 +15,14 @@ class SuratMasuk extends Controller
      */
     public function index()
     {
-        return view('pages.suratmasuk.index');
+        $surat = Surat::where('email_kepada', Auth::user()->email)->get();
+        return view('pages.suratmasuk.index', compact('surat'));
+    }
+
+    public function download($id){
+        $data = Surat::find($id)->file;
+        return response()->download(storage_path('app/public/'.$data));
+
     }
 
     /**
