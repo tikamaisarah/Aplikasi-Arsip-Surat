@@ -168,7 +168,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Surat Masuk</h1>
+                            <h1 class="m-0"></h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -179,29 +179,42 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="card">
+                        <div class="card-header">
+                            Surat Masuk
+                        </div>
                     <div class="card-body">
-                            <div class="form-group">
-                                <label for="nama">Nama</label>
-                                <input type="name" class="form-control" id="nama">
-                            </div>
-                            <div class="form-group">
-                                <label for="email_from">Email</label>
-                                <input type="email" class="form-control" id="email_from">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <textarea class="form-control" id="subject" rows="1"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">File</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control">
-                                    <span class="input-group-append">
-                                      <button type="button" class="btn btn-info btn-flat">Download</button>
-                                    </span>
-                                  </div>
-                            </div>
+                    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
 
+                    </div>
                 </div>
                     </div>
                     <!-- Small boxes (Stat box) -->
