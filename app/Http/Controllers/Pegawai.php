@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class Pegawai extends Controller
 {
     /**
@@ -13,7 +13,10 @@ class Pegawai extends Controller
      */
     public function index()
     {
-        return view('pages.pegawai.index');
+       $pegawai=User::all();
+        return view('pages.pegawai.index', compact(
+            'pegawai'
+        ));
     }
 
     /**

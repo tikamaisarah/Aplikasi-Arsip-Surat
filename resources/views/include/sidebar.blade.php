@@ -8,11 +8,6 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-
-
-
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -41,6 +36,7 @@
                         </li>
                     </ul>
                 </li>
+                @if (auth()->user()->is_admin == 1)
                 <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
@@ -56,12 +52,7 @@
                                 <p>PEGAWAI</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/kategori" class="nav-link">
-                                <i class="nav-icon fas fa-hashtag"></i>
-                                <p>KATEGORI</p>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -71,6 +62,9 @@
                         <p>LAPORAN</p>
                     </a>
                 </li>
+                @endif
+
+
 
             </ul>
         </nav>

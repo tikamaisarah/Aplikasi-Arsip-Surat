@@ -17,7 +17,14 @@ class CreateUserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Admin',
-                'email' => 'admin@admin.com',
+                'email' => 'admin@gmail.com',
+                'level' => '1',
+                'password' => bcrypt('123456'),
+            ],
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'level' => '0',
                 'password' => bcrypt('123456'),
             ],
         ];

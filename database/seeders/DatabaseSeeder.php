@@ -19,7 +19,14 @@ class DatabaseSeeder extends Seeder
         $users = [
             [
                 'name' => 'Admin',
-                'email' => 'admin@admin.com',
+                'email' => 'admin@gmail.com',
+                'is_admin' => '1',
+                'password' => bcrypt('123456'),
+            ],
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'is_admin' => '0',
                 'password' => bcrypt('123456'),
             ],
         ];
