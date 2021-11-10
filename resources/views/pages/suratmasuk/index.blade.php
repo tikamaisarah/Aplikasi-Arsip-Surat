@@ -33,6 +33,7 @@
                                 <th>Pengirim</th>
                                 <th>Subjek</th>
                                 <th>File</th>
+                                <th>Aksi</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -42,15 +43,19 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $st->email_dari }}</td>
                                 <td>{{ $st->subject}}</td>
-                                {{-- <td><span class="badge bg-danger">Raport.pdf</span></td> --}}
                                 <td>
                                     @if($st->file==null)
                                     <button class="btn btn-block btn-secondary">Tidak ada file</button>
                                     @else
                                     <a href="/surat_masuk/download/{{$st->id}}" class="btn btn-block btn-success">Download</a>
-
                                     @endif
                                 </td>
+                                <td class="d-flex">
+                                    <form action="{{ route('surat_masuk.destroy', $st->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-block btn-danger" onclick="return confirm('Yakin untuk hapus data?')">Delete</button>
+                                    </form>
                               </tr>
                               @endforeach
                             </tbody>

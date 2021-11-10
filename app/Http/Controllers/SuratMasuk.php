@@ -88,6 +88,8 @@ class SuratMasuk extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Surat::findOrFail($id);
+        $data->delete();
+        return redirect()->back();
     }
 }
