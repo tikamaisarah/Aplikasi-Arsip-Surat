@@ -27,21 +27,32 @@
 
 
                     <div class="card">
+                        <div class="card-header">
+                            <div class=" d-flex justify-content-between" >
+                            Daftar Surat Keluar
+                            <button class="btn btn-success">Total Surat({{count($surat_keluar)}})</button>
+                            </div>
+
+                        </div>
                         <div class="card-body">
                             <table class="table table-bordered ">
                                 <thead>
                                   <tr>
                                     <th style="width: 10px">#</th>
+                                    <th>Dari</th>
                                     <th>Kepada</th>
+                                    <th>Nomor Surat</th>
                                     <th>Subject</th>
                                     <th>Aksi</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($surat as $st)
+                                    @foreach($surat_keluar as $st)
                                         <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $st->email_dari}}</td>
                                         <td>{{ $st->email_kepada}}</td>
+                                        <td>{{ $st->nomor_surat}}</td>
                                         <td>{{ $st->subject}}</td>
                                         <td class="d-flex">
                                             <a href="{{ route('surat_keluar.show',$st->id) }}" class="mr-2 edit btn btn-primary ">Lihat</a>

@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/surat_keluar/download/{id}', [App\Http\Controllers\SuratKeluar::class, 'download']);
 Route::resource('surat_keluar', \App\Http\Controllers\SuratKeluar::class);
 Route::get('/surat_masuk/download/{id}', [App\Http\Controllers\SuratMasuk::class, 'download']);
 Route::resource('surat_masuk', App\Http\Controllers\SuratMasuk::class);

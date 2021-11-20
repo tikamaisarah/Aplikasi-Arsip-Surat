@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Surat;
+use App\Models\SuratKeluar as Surat;
 use App\Models\User;
 
 class SuratKeluar extends Controller
@@ -16,9 +16,9 @@ class SuratKeluar extends Controller
      */
     public function index()
     {
-        $surat = Surat::where('email_dari', Auth::user()->email)->get();
+        $surat_keluar = Surat::all();
 
-        return view('pages.suratkeluar.index', compact('surat'));
+        return view('pages.suratkeluar.index', compact('surat_keluar'));
     }
 
     /**
@@ -40,21 +40,15 @@ class SuratKeluar extends Controller
      */
     public function store(Request $request)
     {
-        if(User::where('email', $request->email_kepada)->first() == null){
-            return redirect()->back()->with('gagal','Email user tidak ditemukan');
-        } else{
-            $data = $request->all();
 
-            if($request->file('file')){
-                $data['file'] = $request->file('file')->store('file', 'public');
-            }
+        $data = $request->all();
+
+        if ($request->file('file')) {
+            $data['file'] = $request->file('file')->store('file', 'public');
+        }
 
         $surat = Surat::create($data);
         return redirect()->route('surat_keluar.index');
-        }
-
-
-
     }
 
     /**
@@ -96,9 +90,9 @@ class SuratKeluar extends Controller
         $surat = Surat::findOrFail($id);
         $data = $request->all();
 
-            if($request->file('file')){
-                $data['file'] = $request->file('file')->store('file', 'public');
-            }
+        if ($request->file('file')) {
+            $data['file'] = $request->file('file')->store('file', 'public');
+        }
 
         $surat->update($data);
         return redirect()->route('surat_keluar.index');
@@ -116,5 +110,11 @@ class SuratKeluar extends Controller
         $data = Surat::findOrFail($id);
         $data->delete();
         return redirect()->back();
+    }
+
+    public function download($id)
+    {
+        $data = Surat::find($id)->file;
+        return response()->download(storage_path('app/public/' . $data));
     }
 }

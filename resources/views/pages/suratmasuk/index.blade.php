@@ -7,10 +7,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0"></h1>
+                            <h1 class="m-0">Surat Masuk</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
+                <div class="col-2">
+                    <a href="{{ route('surat_masuk.create') }}" type="button" class="btn btn-block btn-primary">Tambah Surat masuk</a>
+                </div>
             </div>
             <!-- /.content-header -->
 
@@ -20,7 +23,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class=" d-flex justify-content-between" >
-                            Surat Masuk
+                            Daftar Surat Masuk
                             <button class="btn btn-success">Total Surat({{count($surat)}})</button>
                             </div>
 
@@ -29,11 +32,14 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th style="width: 10px">#</th>
-                                <th>Pengirim</th>
-                                <th>Subjek</th>
-                                <th>File</th>
-                                <th>Aksi</th>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Dari</th>
+                                    <th>Kepada</th>
+                                    <th>Nomor Surat</th>
+                                    <th>Subject</th>
+                                    <th>Aksi</th>
+                                  </tr>
                               </tr>
                             </thead>
                             <tbody>
@@ -42,15 +48,11 @@
                               <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $st->email_dari }}</td>
+                                <td>{{ $st->email_kepada }}</td>
+                                <td>{{ $st->nomor_surat }}</td>
                                 <td>{{ $st->subject}}</td>
-                                <td>
-                                    @if($st->file==null)
-                                    <button class="btn btn-block btn-secondary">Tidak ada file</button>
-                                    @else
-                                    <a href="/surat_masuk/download/{{$st->id}}" class="btn btn-block btn-success">Download</a>
-                                    @endif
-                                </td>
                                 <td class="d-flex">
+                                    <a href="{{ route('surat_masuk.show',$st->id) }}" class="mr-2 edit btn btn-primary ">Lihat</a>
                                     <form action="{{ route('surat_masuk.destroy', $st->id) }}" method="POST">
                                         @csrf
                                         @method('delete')

@@ -22,7 +22,11 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{ route('surat_keluar.edit', $surat->id) }}" type="button" class="btn btn-primary">Edit</a>
+
+                            <div class=" d-flex justify-content-between" >
+                                Detail Surat Keluar
+                                <a href="{{ route('surat_keluar.edit', $surat->id) }}" type="button" class="btn btn-primary">Edit</a>
+                                </div>
                         </div>
                         <div class="card-body">
                             {{-- @if ($message = session()->get('gagal'))
@@ -38,11 +42,15 @@
                                 @csrf --}}
                                 <div class="form-group">
                                     <label for="">Dari</label>
-                                    <input type="text" name="email_dari" readonly value="{{ Auth::user()->email }}" class="form-control">
+                                    <input type="email" name="email_dari" class="form-control" value="{{$surat->email_dari}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Kepada</label>
-                                    <input type="email" name="email_kepada" id="" class="form-control" value="{{ $surat->email_kepada}}">
+                                    <input type="email" name="email_kepada" id="" class="form-control" value="{{$surat->email_kepada}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nomor Surat</label>
+                                    <input type="text" name="nomor_surat" id="" class="form-control" value="{{$surat->nomor_surat}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Subject</label>
@@ -50,7 +58,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">File</label>
-                                    <input type="file" name="file" id="" class="form-control">
+                                    @if($surat->file==null)
+                                    <button class="btn btn-block btn-secondary">Tidak ada file</button>
+                                    @else
+                                    <a href="/surat_keluar/download/{{$surat->id}}" class="btn btn-block btn-success">Download</a>
+                                    @endif
+                                    {{-- <input type="file" name="file" id="" class="form-control"> --}}
                                 </div>
                             {{-- </form> --}}
                         </div>

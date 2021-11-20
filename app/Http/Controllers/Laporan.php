@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SuratKeluar;
+use App\Models\SuratMasuk;
+
 
 class Laporan extends Controller
 {
@@ -13,6 +16,7 @@ class Laporan extends Controller
      */
     public function index()
     {
+
         return view('pages.laporan.index');
     }
 

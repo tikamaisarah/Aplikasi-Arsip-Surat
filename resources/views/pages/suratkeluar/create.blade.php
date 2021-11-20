@@ -22,7 +22,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            Surat keluar
+                            Tambah Surat keluar
                         </div>
                         <div class="card-body">
                             @if ($message = session()->get('gagal'))
@@ -38,11 +38,15 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="">Dari</label>
-                                    <input type="text" name="email_dari" readonly value="{{ Auth::user()->email }}" class="form-control">
+                                    <input type="email" name="email_dari" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Kepada</label>
                                     <input type="email" name="email_kepada" id="" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nomor Surat</label>
+                                    <input type="text" name="nomor_surat" id="" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Subject</label>

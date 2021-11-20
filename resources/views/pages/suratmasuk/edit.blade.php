@@ -8,7 +8,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Surat Keluar</h1>
+                            <h1 class="m-0">Surat Masuk</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            Edit Surat keluar
+                            Edit Surat Masuk
                         </div>
                         <div class="card-body">
                             @if ($message = session()->get('gagal'))
@@ -34,7 +34,7 @@
                               </div>
                             @endif
 
-                            <form action="{{ route('surat_keluar.update', $surat->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('surat_masuk.update', $surat->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Subject</label>
-                                    <textarea name="subject" id="" class="form-control" cols="30" rows="10" name="subject">{{ $surat->subject}}</textarea>
+                                    <textarea name="subject" id="" class="form-control" cols="30" rows="10" name="subject">{{$surat->subject}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">File</label>
